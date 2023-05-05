@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Word Game</title>    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <style>
+            /* Add a black background color to the top navigation */
+            .topnav {
+              background-color: #333;
+              overflow: hidden;
+            }
+      
+            /* Style the links inside the navigation bar */
+            .topnav a {
+              float: left;
+              color: #f2f2f2;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+              font-size: 17px;
+            }
+      
+            /* The sidebar menu */
+            .sidenav {
+              height: 100%; /* Full-height: remove this if you want "auto" height */
+              width: 160px; /* Set the width of the sidebar */
+              position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+              z-index: 1; /* Stay on top */
+              left: 0;
+              background-color: #111; /* Black */
+              overflow-x: hidden; /* Disable horizontal scroll */
+              padding-top: 20px;
+            }
+      
+            /* The navigation menu links */
+            .sidenav a {
+              padding: 6px 8px 6px 16px;
+              text-decoration: none;
+              font-size: 25px;
+              color: #818181;
+              display: block;
+            } 
+            .content {
+              margin-left: 180px; /* Make this be 20px more than the sidenav width */
+              margin-right: 20px;
+            }
+            .multicol {
+              column-count: 4;
+              column-gap: 10px;
+              column-rule-style: solid;
+              column-rule-width: 1px;
+              column-span: all;
+              border-style: solid;
+              border-width: 1px;
+            }
+          </style>
+
+    </head>
+
+    <body background-color="lightgoldenrodyellow">
+        <div class="topnav">
+            <a href="#">Word Game</a>
+        </div>
+        <div class="wrapper">
+            <div id="sidebar" class="sidenav">
+                <a href="#">About</a>
+                <a href="#" id="startbtn" onclick="startGame()">Start</a>
+                <a href="#" id="stopbtn" onclick="stopGame()">Stop</a>
+                <a href="#" id="timeremaining" hidden>placeholder</a> 
+                <a href="#" id="scorecount">Score: 0</a>
+            </div>
+        </div>
+        <div id="content" class="content">
+          <div id="gameplay">
+            <div id="word"><h3>Word</h3></div>
+            <div id="wordperms" class="multicol" hidden>
+              <div id="permutationList" class="list">
+                <span id="perm1"></span>
+                <br>
+                <span id="perm2"></span>
+                <br>
+                <span id="perm3"></span>
+                <br>
+                <span id="perm4"></span>
+                <br>
+                <span id="perm5"></span>
+                <br>
+                <span id="perm6"></span>
+                <br>
+                <span id="perm7"></span>
+                <br>
+                <span id="perm8"></span>
+                <br>
+                <span id="perm9"></span>
+                <br>
+                <span id="perm10"></span>
+                <br>
+                <span id="perm11"></span>
+                <br>
+                <span id="perm12"></span>
+                <br>
+                <span id="perm13"></span>
+                <br>
+                <span id="perm14"></span>
+                <br>
+                <span id="perm15"></span>
+                <br>
+                <span id="perm16"></span>
+                <br>
+                <span id="perm17"></span>
+                <br>
+                <span id="perm18"></span>
+                <br>
+                <span id="perm19"></span>
+                <br>
+                <span id="perm20"></span>
+                <br>
+                <span id="perm21"></span>
+                <br>
+                <span id="perm22"></span>
+                <br>
+                <span id="perm23"></span>
+                <br>
+                <span id="perm24"></span>
+              </div>
+            </div>
+            <br/>
+            <div id="entry">
+              <h3>
+                <input type="text" id="entrytext">
+                <button id="addwordbtn" onclick="addWord()">Add Word</button>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <script src="controller.js"></script>
+
+    </body>
+
+</html>
