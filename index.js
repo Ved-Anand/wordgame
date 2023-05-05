@@ -1,6 +1,8 @@
 const electron = require("electron");
 const game = require("./game");
 
+electron.app.disableHardwareAcceleration();
+
 let win;
 
 function createWindow() {

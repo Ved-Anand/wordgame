@@ -22,7 +22,7 @@ let lists = [
     wordlist['english/20'],
     wordlist['english/35'],
 
-    /* (more uncommon words:)
+    /* (more uncommon words)
     wordlist['english/40'],
     wordlist['english/50'],
     wordlist['english/55'],

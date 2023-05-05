@@ -1,16 +1,17 @@
 const wordlist = require("./wordlist");
 let minWordLength = 3;
-let maxPermutations = 24;
+let timeLimit = 120; // change if you want?
 
 let gameState = {
     state: "stopped",
     baseWord: null,
-    timeRemaining: 120,
+    timeRemaining: timeLimit,
     score: 0,
     stats: null
 }
 
 exports.minWordLength = minWordLength;
+exports.timeLimit = timeLimit;
 
 exports.getGameState = function() {
     return gameState;
@@ -56,16 +57,6 @@ exports.startGame = function() {
     gameState.baseWord.scrambled = scrambleWord(word);
 
     let perms = permuteWord(word);
-    if (perms.length > maxPermutations) { //just cuz idk how to do this without manual HTML elements and i only have 24 of those 
-        let hasFinished = false;
-        while (!hasFinished) {
-            word = baseWords[Math.floor(Math.random() * baseWords.length)];
-            gameState.baseWord.word = word;
-            gameState.baseWord.scrambled = scrambleWord(word);
-            perms = permuteWord(word);
-            if (perms.length <= maxPermutations) hasFinished = true;
-        }
-    }
 
     gameState.baseWord.perms = new Array();
 
@@ -82,7 +73,7 @@ exports.stopGame = function() {
     gameState = {
         state: "stopped",
         baseWord: null,
-        timeRemaining: 120,
+        timeRemaining: timeLimit,
         score: 0,
         stats: gameState.stats
     }

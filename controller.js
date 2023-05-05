@@ -32,7 +32,20 @@ function startGame() {
         string = string.trim(); //compensate for the extra space at end
 
         try {
-            document.getElementById(id).innerHTML = string;
+
+            if (i != 0) {
+                //append break
+                let brk = document.createElement("br");
+                document.getElementById("permutationList").appendChild(brk);
+            }
+            let span = document.createElement("span");
+            let node = document.createTextNode(string);
+            span.appendChild(node);
+            span.setAttribute("id", id)
+            document.getElementById("permutationList").appendChild(span);
+
+
+
         } catch(err) {
             // this shouldn't happen anymore now that there is a cap on word permutations
             // at some point(?): use java appendChild, make element stuff to automate permutation span element. Shouldnt be that difficult? 
@@ -46,14 +59,19 @@ function startGame() {
 }
 
 function stopGame() {
+
+    if (game.getGameState().state == "stopped") return; 
+
     game.stopGame();
+
+    document.getElementById("permutationList").innerHTML = "";
 
     document.getElementById("word").innerHTML = "Word";
     document.getElementById("scorecount").innerHTML = "Score: 0";
     document.getElementById("wordperms").hidden = true;
     document.getElementById("timeremaining").hidden = true;
     setTimeout(() => {
-        document.getElementById("timeremaining").innerHTML + "Time: 120"
+        document.getElementById("timeremaining").innerHTML + `Time: ${game.timeLimit+1}`
     }, 1000);
 
 }
